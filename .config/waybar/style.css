@@ -1,0 +1,113 @@
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family:'JetBrains Mono';
+  font-size: 14px;
+  border: none;
+}
+
+window#waybar {
+  background: transparent;
+  background-color: rgba(26, 27, 38, 0.180);
+  color: #ffffff;
+  /* transition-property: background-color;
+  transition-duration: 0.5s; */
+}
+
+window#waybar.hidden {
+  opacity: 1;
+}
+
+
+#clock,
+#cpu,
+#memory,
+#tray,
+#mode,
+#workspaces,
+#custom-power-menu,
+#pulseaudio,
+#workspaces button,
+#custom-notification,
+#custom-updates {
+  color: #84a0d8;
+  background-color: #0D1117;
+  border-radius: 10px;
+  padding: 2.5px 5px;
+  margin: 2px 2px;
+}
+
+#workspaces button {
+  color: #DFA693;
+  box-shadow: inset 0 -3px transparent;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+  padding: 0px 3px;
+}
+
+#workspaces button.active {
+color: #DFA693; 
+transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+}
+
+#pulseaudio {
+  /*  color: #A1C999; */
+}
+
+#pulseaudio.muted {
+  color: #fb958b;
+}
+
+
+@keyframes blink {
+  to {
+    background-color: rgba(30, 34, 42, 0.5);
+    color: #abb2bf;
+  }
+}
+
+
+#custom-lock {
+  color: #ecd3a0;
+  padding: 0 15px;
+  margin-left: 7px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+#clock {
+color: #8466B7;
+
+}
+
+
+tooltip {
+  border-radius: 15px;
+  padding: 15px;
+  background-color: rgba(31, 35, 43, 0.3);
+}
+
+tooltip label {
+  padding: 5px;
+}
+
+label:focus {
+  background-color: rgba(31, 35, 43, 0.3);
+}
+
+#tray {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+
+#custom-spotify {
+  color: #abb2bf;
+}
