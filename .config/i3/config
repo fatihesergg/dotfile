@@ -16,10 +16,10 @@ for_window [class="polkit-gnome-authentication-agent-1"] floating enable
 for_window [class="swayosd-server"] floating enable
 
 # Gaps
-gaps inner 10
+gaps inner 5
 
 # Font
-font pango:Jetbrains Mono Regular 14
+font pango:Jetbrains Mono Regular 0
 
 # Modkey
 set $mod Mod4
@@ -34,6 +34,7 @@ exec_always --no-startup-id picom
 exec_always --no-startup-id dunst
 exec_always feh --bg-scale /home/fatih/Pictures/wallpaper.jpg
 exec_always --no-startup-id piper
+exec_always ~/.config/i3/scripts/autotiling
 exec --no-startup-id polybar 
 
 # Volume.

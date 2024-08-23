@@ -1,13 +1,13 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family:'JetBrains Mono';
-  font-size: 14px;
+  font-size: 15px;
   border: none;
 }
 
 window#waybar {
-  background: transparent;
-  background-color: rgba(26, 27, 38, 0.180);
+  background: #1D202F;
+  background-color: #1E2136;
   color: #ffffff;
   /* transition-property: background-color;
   transition-duration: 0.5s; */
@@ -23,17 +23,22 @@ window#waybar.hidden {
 #memory,
 #tray,
 #mode,
-#workspaces,
 #custom-power-menu,
 #pulseaudio,
 #workspaces button,
 #custom-notification,
 #custom-updates {
-  color: #84a0d8;
-  background-color: #0D1117;
+  color: #86A0C4;
   border-radius: 10px;
-  padding: 2.5px 5px;
-  margin: 2px 2px;
+  padding: 1 5px;
+  margin: 1 5px;
+}
+#workspaces {
+
+    background-color: #0D1117;
+    border-radius: 20px;
+    padding: 2 5px;
+    margin: 2 5px
 }
 
 #workspaces button {
@@ -46,10 +51,6 @@ window#waybar.hidden {
 #workspaces button.active {
 color: #DFA693; 
 transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
-}
-
-#pulseaudio {
-  /*  color: #A1C999; */
 }
 
 #pulseaudio.muted {
@@ -74,7 +75,7 @@ transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #clock {
-color: #8466B7;
+color: #B089F6;
 
 }
 
@@ -108,6 +109,6 @@ label:focus {
 }
 
 
-#custom-spotify {
+#custom-mediaplayer {
   color: #abb2bf;
 }
