@@ -20,8 +20,8 @@
         "max-length": 40,
         "format-icons": {
             "spotify": "",
-            "default": "󰗃"
-        },
+            "default": "",
+            },
         "escape": true,
         "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null" // Script in resources folder
     },
