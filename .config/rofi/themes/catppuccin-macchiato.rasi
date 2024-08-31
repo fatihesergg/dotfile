@@ -9,7 +9,8 @@
     grey: #6e738d;
 
     width: 600;
-    font: "JetBrains Mono 15";
+    font: "Jetbrains Mono Medium 13";
+    font-weight: bold;
 }
 
 element-text, element-icon , mode-switcher {
