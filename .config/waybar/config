@@ -1,6 +1,9 @@
 {
     "height": 20,
     "layer": "top",
+    "margin-top":10,
+    "margin-left":10,
+    "margin-right":10,
     "modules-left": [
         "hyprland/workspaces",
         "memory"
@@ -19,8 +22,8 @@
         "return-type": "json",
         "max-length": 40,
         "format-icons": {
-            "spotify": "",
-            "default": "",
+            "spotify": " ",
+            "default": " ",
             },
         "escape": true,
         "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null" // Script in resources folder
@@ -62,7 +65,7 @@
     },
     "memory": {
         "interval": 30,
-        "format": " {used}"
+        "format": "  {used}"
     },
     "tray": {
         "spacing": 10
@@ -74,12 +77,12 @@
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "",
+        "format-muted": " ",
         "format-icons": {
             "default": [
-                "",
-                "",
-                ""
+                " ",
+                " ",
+                " "
             ]
         },
         "on-click": "pavucontrol &"
