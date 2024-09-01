@@ -1,9 +1,9 @@
 {
     "height": 20,
     "layer": "top",
-    "margin-top":10,
-    "margin-left":10,
-    "margin-right":10,
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-right": 10,
     "modules-left": [
         "hyprland/workspaces",
         "memory"
@@ -12,7 +12,8 @@
         "tray",
         "pulseaudio",
         "custom/notification",
-        "clock"
+        "clock",
+        "custom/weather"
     ],
     "modules-center": [
         "custom/mediaplayer"
@@ -24,7 +25,7 @@
         "format-icons": {
             "spotify": " ",
             "default": " ",
-            },
+        },
         "escape": true,
         "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null" // Script in resources folder
     },
@@ -86,5 +87,11 @@
             ]
         },
         "on-click": "pavucontrol &"
-    }
+    },
+    "custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "$HOME/.config/waybar/scripts/weather.sh",
+},
 }

@@ -30,6 +30,7 @@ window#waybar.hidden {
 #pulseaudio,
 #workspaces button,
 #custom-notification,
+#custom-weather,
 #custom-updates {
     color: #7692D0;
     border-radius: 10px;
