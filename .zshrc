@@ -42,6 +42,7 @@ antigen apply
 
 # PATH
 path+=($HOME/.local/bin/ $path)
+path+=($HOME/go/bin $path)
 export PATH
 
 # Pyenv
@@ -58,4 +59,9 @@ eval "$(starship init zsh)"
 alias up="sudo pacman -Syu"
 alias print_gray="sudo lpr -o outputorder=reverse -o media=A4 -o fit-to-page -o ColorModel=KGray"
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias sd="cd ~ && cd \$(find * -type d | fzf)"
+alias nd="nvim \$(find * | fzf)"
+alias vd="code \$(find * | fzf)"
+# Generated for envman. Do not edit.
 
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
