@@ -9,7 +9,7 @@
     grey: #6e738d;
     border-radius:10px;
     width: 500;
-    font: "Jetbrains Mono Medium 14";
+    font: "Jetbrains Mono Medium 12";
     font-weight: bold;
 }
 

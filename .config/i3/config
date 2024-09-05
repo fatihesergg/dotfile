@@ -1,5 +1,5 @@
 # Colors
-client.focused          #7aa2f7 #A9B1D6 #ffffff #2e9ef4   #285577
+client.focused          #7aa2f7 #A9B1D6 #1A1B26 #2e9ef4   #285577
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -9,6 +9,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 # for_window [all] title_window_icon yes
 #default_border pixel 0
 #default_floating_border pixel 0
+workspace_layout tabbed
 
 # Window Rules
 for_window [class="^dialect$"] floating enable
@@ -16,38 +17,36 @@ for_window [class="polkit-gnome-authentication-agent-1"] floating enable
 for_window [class="swayosd-server"] floating enable
 
 # Gaps
-gaps inner 5
+gaps inner 0 
 
 # Font
-font pango:Jetbrains Mono Regular 0
+font pango:Jetbrains Mono Regular 12
 
 # Modkey
 set $mod Mod4
 
 # Startup
-exec --no-startup-id swayosd-server
+#exec --no-startup-id swayosd-server
 exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
-exec_always --no-startup-id picom
 exec_always --no-startup-id dunst
 exec_always feh --bg-scale /home/fatih/Pictures/wallpaper.jpg
 exec_always --no-startup-id piper
 exec_always ~/.config/i3/scripts/autotiling
-exec --no-startup-id polybar 
 
 # Volume.
 #set $refresh_i3status killall -SIGUSR1 i3status
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks  
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 i3blocks 
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+10 i3blocks 
 # SwayOSD
-bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume +5
-bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -5
-bindsym XF86AudioMute exec swayosd-client --output-volume mute-toogle
-bindsym XF86AudioMicMute exec swayosd-client --input-volume mute-toogle
+#bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume +5
+#bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -5
+#bindsym XF86AudioMute exec swayosd-client --output-volume mute-toogle
+#bindsym XF86AudioMicMute exec swayosd-client --input-volume mute-toogle
 
 # Window Navigation
 set $up l
@@ -63,7 +62,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # Apps Keybinds
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty 
 bindsym $mod+d exec rofi -show drun
 bindsym $mod+e exec nemo
 bindsym $mod+Shift+q exec "dialect --selection"
@@ -199,6 +198,17 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
+
+bar {
+    position bottom 
+    status_command SCRIPTSDIR=~/.config/i3blocks/scripts i3blocks
+    colors {
+        background #1E2030
+        focused_workspace #B4BEFE #B4BEFE #1e2030
+        inactive_workspace #1E2030 #1E2030 #FFFFFF 
+        urgent_workspace #FF5555 #FF5555 #1e2030
+    }
+    }
 
 bindsym $mod+r mode "resize"
 

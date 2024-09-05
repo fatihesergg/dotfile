@@ -150,3 +150,5 @@ configuration {
   }
 }
 @theme "~/.config/rofi/themes/catppuccin-macchiato.rasi"
+
+

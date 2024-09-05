@@ -1,5 +1,5 @@
 [font]
-normal = {family="Jetbrains Mono",style="Regular"}
+normal = {family="JetbrainsMono Nerd Font Mono",style=""}
 size = 14
 
 [shell]
@@ -39,3 +39,5 @@ color = '#d18616'
 [[colors.indexed_colors]]
 index = 17
 color = '#ffa198'
+[env]
+TERM="xterm-256color"

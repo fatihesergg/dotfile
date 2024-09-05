@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-curl "https://wttr.in/?format=%c%f"
+weather=$(curl -sS "https://wttr.in/?format=%c%f")
+
+echo "$weather"
