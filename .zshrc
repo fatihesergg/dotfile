@@ -50,7 +50,6 @@ export PATH
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)" 
 
 # Starship Prompt
 eval "$(starship init zsh)"
@@ -59,9 +58,9 @@ eval "$(starship init zsh)"
 alias up="sudo pacman -Syu"
 alias print_gray="sudo lpr -o outputorder=reverse -o media=A4 -o fit-to-page -o ColorModel=KGray"
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias sd="cd ~ && cd \$(find * -type d | fzf)"
-alias nd="nvim \$(find * | fzf)"
-alias vd="code \$(find * | fzf)"
+alias sd="cd ~ && cd \$(find  * -type d | fzf)"
+alias nd="cd ~ && nvim \$(find  * | fzf)"
+alias vd="cd ~ && code \$(find  * | fzf)"
 # Generated for envman. Do not edit.
 
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
