@@ -53,4 +53,12 @@ echo "Hopping ssh keys from /mnt/yedek/Linux/ssh-keys-backup\n"
 cp -r /mnt/yedek/Linux/ssh-keys-backup ~/.ssh
 chmod 600 ~/.ssh/*
 echo "ssh:Done\n"
+
+echo "Settings flatpak themes"
+mkdir ~/.themes 2>/dev/null
+mkdir ~/.icons 2>/dev/null
+mkdir ~/.fonts 2>/dev/null
+sudo flatpak override --filesystem=~/.themes
+sudo flatpak override --filesystem=~/.icons
+sudo flatpak override --filesystem=~/.fonts
 }
