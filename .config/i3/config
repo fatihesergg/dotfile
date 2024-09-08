@@ -33,7 +33,7 @@ set $mod Mod4
 exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
-exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id dunst
 exec_always feh --bg-scale /home/fatih/Pictures/wallpaper.jpg
 exec_always --no-startup-id piper
@@ -69,7 +69,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty 
 bindsym $mod+d exec rofi -show drun
 bindsym $mod+e exec nemo
-bindsym $mod+b exec chromium
+bindsym $mod+b exec flatpak run io.github.ungoogled_software.ungoogled_chromium 
 bindsym $mod+Shift+q exec "dialect --selection"
 
 # Media player controls
