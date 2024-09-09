@@ -1,19 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 {backup|hop}"
-    exit 1
-fi
-
-if [ "$1" == "backup" ];then
-    backup
-elif [ "$1" == "hop" ];then
-    hop
-else
-    echo "Usage: $0 {backup|hop}"
-fi
-
-backup() {
+backup_files() {
 
 # chromuim
 echo "Backing up chromuim profile to /mnt/yedek/Linux/chromuim-backup\n"
@@ -62,3 +49,16 @@ sudo flatpak override --filesystem=~/.themes
 sudo flatpak override --filesystem=~/.icons
 sudo flatpak override --filesystem=~/.fonts
 }
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 {backup|hop}"
+    exit 1
+fi
+
+if [ "$1" == "backup" ];then
+    backup_files
+elif [ "$1" == "hop" ];then
+    hop
+else
+    echo "Usage: $0 {backup|hop}"
+fi
+
