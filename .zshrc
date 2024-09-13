@@ -51,5 +51,5 @@ eval "$(starship init zsh)"
 # Alias
 alias print_gray="sudo lpr -o outputorder=reverse -o media=A4 -o fit-to-page -o ColorModel=KGray"
 alias sd="cd ~ && cd \$(find  * -type d | fzf)"
-alias nd="cd ~ && cd \$(find  * | fzf) && nvim ."
+alias nd="cd ~ && cd \$(dirname \$(rg  --hidden --no-line-number --smart-case  --files | fzf)) && nvim ."
 alias vd="cd ~ && code \$(find  * | fzf)"

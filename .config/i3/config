@@ -208,10 +208,13 @@ bindsym $mod+r mode "resize"
 
 
 bar  {
-        status_command SCRIPTS=~/.config/i3blocks/scripts i3blocks
+
+    status_command SCRIPTS=~/.config/i3blocks/scripts i3blocks
     font pango:JetbrainsMono Nerd Font ,Font Awesome 6 Free 10
     separator_symbol "|"
     colors{
         background #1e1e2e
-        }
+        focused_workspace #B4BEFE #B4BEFE #1E1E2E
+        inactive_workspace #1E1E2E #1E1E2E #9CA2BC
+    }
 }
