@@ -1,0 +1,36 @@
+[volume-pipewire]
+command=$SCRIPTS/volume-pipewire
+signal=10
+interval=once
+SHORT_FORMAT=${SYMB}${VOL}%
+LONG_FORMAT=${SYMB}${VOL}%
+AUDIO_HIGH_SYMBOL= 
+AUDIO_MED_SYMBOL= 
+AUDIO_LOW_SYMBOL=
+
+[cpu_usage]
+command=$SCRIPTS/cpu_usage
+interval=10
+DECIMAL=1
+label= 
+
+[memory]
+command=$SCRIPTS/memory
+interval=10
+label= 
+
+[date]
+command=date +%d-%m-%Y
+interval=once
+label= 
+
+[time]
+command=date +%H:%M
+interval=once
+label= 
+
+[weather]
+command=~/.config/waybar/scripts/weather.sh
+interval=3600
+color=#A4C2F4
+

@@ -11,6 +11,10 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 #default_floating_border pixel 0
 workspace_layout tabbed 
 
+# Remove title bars
+default_border none
+default_floating_border none
+
 # Window Rules
 for_window [class="^dialect$"] floating enable move position center
 for_window [class="polkit-gnome-authentication-agent-1"] floating enable move position center
@@ -23,7 +27,7 @@ assign [class="Spotify"] 5
 gaps inner 0 
 
 # Font
-font pango:JetbrainsMono Nerd Font Regular 12
+font pango:JetbrainsMono Nerd Font Regular 11
 
 # Modkey
 set $mod Mod4
@@ -39,7 +43,8 @@ exec_always feh --bg-scale /home/fatih/Pictures/wallpaper.jpg
 exec_always --no-startup-id piper
 exec_always ~/.config/i3/scripts/autotiling
 exec_always --no-startup-id picom
-exec_always polybar
+
+
 # Volume.
 #set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks
@@ -51,6 +56,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 #bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -5
 #bindsym XF86AudioMute exec swayosd-client --output-volume mute-toogle
 #bindsym XF86AudioMicMute exec swayosd-client --input-volume mute-toogle
+
 
 # Window Navigation
 set $up l
@@ -115,16 +121,16 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-#bindsym $mod+e layout toggle split
+bindsym $mod+a layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+##bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -200,3 +206,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
+
+bar  {
+        status_command SCRIPTS=~/.config/i3blocks/scripts i3blocks
+    font pango:JetbrainsMono Nerd Font ,Font Awesome 6 Free 10
+    separator_symbol "|"
+    colors{
+        background #1e1e2e
+        }
+}
