@@ -53,3 +53,15 @@ alias print_gray="sudo lpr -o outputorder=reverse -o media=A4 -o fit-to-page -o 
 alias sd="cd ~ && cd \$(find  * -type d | fzf)"
 alias nd="cd ~ && cd \$(dirname \$(rg  --hidden --no-line-number --smart-case  --files | fzf)) && nvim ."
 alias vd="cd ~ && code \$(find  * | fzf)"
+
+
+function fzf_nvim() {
+    local dir
+    dir=$(rg ~ --hidden --no-line-number --smart-case --files 2>/dev/null | fzf)
+    if [[ -n "$dir" ]]; then
+        cd "$(dirname "$dir")" && nvim . 
+    fi
+}
+
+zle -N fzf_nvim
+bindkey '^F' fzf_nvim
