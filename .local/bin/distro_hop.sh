@@ -48,6 +48,7 @@ mkdir ~/.fonts 2>/dev/null
 sudo flatpak override --filesystem=~/.themes
 sudo flatpak override --filesystem=~/.icons
 sudo flatpak override --filesystem=~/.fonts
+sudo flatpak override --env=XCURSOR_SIZE=24
 }
 if [ "$#" -ne 1 ]; then
     echo "Usage: $0 {backup|hop}"
