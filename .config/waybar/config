@@ -1,4 +1,5 @@
 {
+    "bottom":true,
     "height": 20,
     "layer": "top",
     "margin-top": 10,

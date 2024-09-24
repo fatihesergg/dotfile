@@ -45,10 +45,16 @@ echo "Settings flatpak themes"
 mkdir ~/.themes 2>/dev/null
 mkdir ~/.icons 2>/dev/null
 mkdir ~/.fonts 2>/dev/null
+
+
 sudo flatpak override --filesystem=~/.themes
 sudo flatpak override --filesystem=~/.icons
 sudo flatpak override --filesystem=~/.fonts
 sudo flatpak override --env=XCURSOR_SIZE=24
+
+
+gsettings set org.gnome.desktop.default-applications.terminal exec alacritty
+
 }
 if [ "$#" -ne 1 ]; then
     echo "Usage: $0 {backup|hop}"
