@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+cd ~
 SELECTED_PATH=$(rg --hidden --no-line-number --smart-case --files 2>/dev/null | fzf)
 
 if [ -z "$SELECTED_PATH" ]; then
@@ -20,7 +21,7 @@ if [[ "$1" == "-s" ]]; then
     fi
 
     tmux new-session -d -s "$SESSION_NAME"
-        tmux send-keys "cd $DIR_PATH && nvim ." C-m
+    tmux send-keys "cd $DIR_PATH && nvim ." C-m
     tmux attach-session -t "$SESSION_NAME"
 else
     if  [ -z "$TMUX" ]; then

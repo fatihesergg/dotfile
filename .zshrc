@@ -55,12 +55,8 @@ alias nd="cd ~ && cd \$(dirname \$(rg  --hidden --no-line-number --smart-case  -
 alias vd="cd ~ && code \$(find  * | fzf)"
 
 
-function tmux_nvim() {
-    $(open_tmux_nvim -s)
-}
-
-zle -N  tmux_nvim
-bindkey '^F' tmux_nvim
+bindkey -s '^S' "open_tmux_nvim -s^M" 
+bindkey -s '^F' "open_tmux_nvim^M" 
 
 # Pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
