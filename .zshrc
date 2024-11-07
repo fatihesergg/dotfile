@@ -55,13 +55,15 @@ alias nd="cd ~ && cd \$(dirname \$(rg  --hidden --no-line-number --smart-case  -
 alias vd="cd ~ && code \$(find  * | fzf)"
 
 
-function fzf_nvim() {
-    local dir
-    dir=$(rg ~ --hidden --no-line-number --smart-case --files 2>/dev/null | fzf)
-    if [[ -n "$dir" ]]; then
-        cd "$(dirname "$dir")" && nvim . 
-    fi
+function tmux_nvim() {
+    $(open_tmux_nvim -s)
 }
 
-zle -N fzf_nvim
-bindkey '^F' fzf_nvim
+zle -N  tmux_nvim
+bindkey '^F' tmux_nvim
+
+# Pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
