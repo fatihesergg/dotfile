@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+SELECTED_PATH=$(rg --hidden --no-line-number --smart-case --files 2>/dev/null | fzf)
+
+if [ -z "$SELECTED_PATH" ]; then
+    echo "No file selected."
+    exit 1
+fi
+
+# Extract the directory of the file
+DIR_PATH=$(dirname "$SELECTED_PATH")
+DIR_NAME=$(basename "$DIR_PATH")
+SESSION_NAME="$DIR_NAME"
+
+if [[ "$1" == "-s" ]]; then
+
+    if tmux has-session -t "$DIR_NAME"  2>/dev/null; then
+        tmux attach-session -t "$DIR_NAME"
+        exit 0
+    fi
+
+    tmux new-session -d -s "$SESSION_NAME"
+        tmux send-keys "cd $DIR_PATH && nvim ." C-m
+    tmux attach-session -t "$SESSION_NAME"
+else
+    if  [ -z "$TMUX" ]; then
+        if tmux has-session -t "$DIR_NAME" 2>/dev/null; then
+            tmux attach-session -t "$DIR_NAME"
+            exit 0
+        fi
+        tmux new-session -d -s "$SESSION_NAME"
+        tmux send-keys "cd $DIR_PATH && nvim ." C-m
+        tmux attach-session -t "$SESSION_NAME"
+    else
+        tmux new-window 
+        tmux send-keys "cd $DIR_PATH && nvim ." C-m
+
+    fi
+fi
