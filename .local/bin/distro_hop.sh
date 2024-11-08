@@ -9,6 +9,13 @@ mkdir -p /mnt/yedek/Linux/chromium-backup
 cp -r ~/.config/chromium /mnt/yedek/Linux/chromium-backup
 echo "chromuim:Done\n"
 
+# zen
+echo "Backing up zen profile to /mnt/yedek/Linux/zen-backup\n"
+rm -rf  /mnt/yedek/Linux/zen-backup
+mkdir -p /mnt/yedek/Linux/zen-backup
+cp -r /home/fatih/.var/app/io.github.zen_browser.zen/cache/zen /mnt/yedek/Linux/zen-backup
+echo "zen:Done\n"
+
 # wallpaper
 echo "Backing up wallpaper to /mnt/yedek/Linux/wallpaper-backup\n"
 rm -rf  /mnt/yedek/Linux/wallpaper-backup
@@ -21,6 +28,12 @@ echo "Backing up ssh keys to /mnt/yedek/Linux/ssh-keys-backup\n"
 cp -r ~/.ssh /mnt/yedek/Linux/ssh-keys-backup
 echo "ssh:Done\n"
 
+# Programming
+echo "Backing up programming to /mnt/yedek/Linux/programming-backup\n"
+rm -rf  /mnt/yedek/Linux/programming-backup
+mkdir -p /mnt/yedek/Linux/programming-backup
+cp -r ~/Programming /mnt/yedek/Linux/programming-backup
+echo "programming:Done\n"
 }
 
 hop() {
@@ -29,6 +42,11 @@ hop() {
 echo "Hopping chromuim profile from /mnt/yedek/Linux/chromium-backup\n"
 cp -r /mnt/yedek/Linux/chromium-backup ~/.config
 echo "chromuim:Done\n"
+
+# zen 
+echo "Hopping zen profile from /mnt/yedek/Linux/zen-backup\n"
+cp -r /mnt/yedek/Linux/zen-backup /home/fatih/.var/app/io.github.zen_browser.zen/cache
+echo "zen:Done\n"
 
 # wallpaper
 echo "Hopping wallpaper from /mnt/yedek/Linux/wallpaper-backup\n"
@@ -40,6 +58,12 @@ echo "Hopping ssh keys from /mnt/yedek/Linux/ssh-keys-backup\n"
 cp -r /mnt/yedek/Linux/ssh-keys-backup ~/.ssh
 chmod 600 ~/.ssh/*
 echo "ssh:Done\n"
+
+
+# Programming
+echo "Hopping programming from /mnt/yedek/Linux/programming-backup\n"
+cp -r /mnt/yedek/Linux/programming-backup ~/Programming/
+echo "programming:Done\n"
 
 echo "Settings flatpak themes"
 mkdir ~/.themes 2>/dev/null
