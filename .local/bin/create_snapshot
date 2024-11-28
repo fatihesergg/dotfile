@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Ensure Timeshift is available
+if ! command -v timeshift &> /dev/null; then
+    echo "Timeshift is not installed. Exiting."
+    exit 1
+fi
+
+# Get the current date and time
+timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+
+# Take a snapshot using Timeshift
+timeshift --create --comments "Snapshot taken on boot at $timestamp" --tags D
