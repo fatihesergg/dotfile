@@ -26,6 +26,10 @@ default_floating_border none
 
 ###############################################################################################
 # Window Rules
+for_window [window_role="pop-up"] floating enable move position center
+for_window [window_role="bubble"] floating enable
+for_window [window_type="dialog"] floating enable focus
+for_window [window_type="menu"] floating enable
 for_window [class="^dialect$"] floating enable move position center
 for_window [class="polkit-gnome-authentication-agent-1"] floating enable move position center
 for_window [class="swayosd-server"] floating enable move position center
@@ -90,7 +94,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous
 
     bindsym $mod+d exec $menu
     bindsym $mod+b exec $browser
-    bindsym $mod+e exec nemo
+    bindsym $mod+e exec dolphin
     bindsym Control+Alt+e exec dbus-send --type=method_call --dest=io.crow_translate.CrowTranslate /io/crow_translate/CrowTranslate/MainWindow  io.crow_translate.CrowTranslate.MainWindow.translateSelection
     floating_modifier $mod normal
 
